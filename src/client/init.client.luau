@@ -1,0 +1,2 @@
+-- Client entry point.
+-- Add client controllers and UI initialization here as the project grows.
