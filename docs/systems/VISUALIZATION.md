@@ -1,61 +1,228 @@
 # Visualization / Comprehension System
 
+## Status
+
+The fantasy and role of visualization are **LOCKED**. The exact minigame/input is **OPEN** and should be prototyped rather than overdesigned on paper.
+
 ## Fantasy
 
-Objects are not simply pickups. The player must be intelligent enough to understand/visualize them.
+World objects are not ordinary pickups. The player is attempting to hold a sufficiently accurate mental representation of the object.
 
-This system should make IQ feel like capability rather than only a number.
+The interaction should communicate:
 
-## Object data — expected direction
+> I understand this object well enough to picture it in my mind.
 
-Each visualizable object will likely need configurable data such as:
-- identifier
-- display name
-- recommended or required IQ
-- base progression/value
-- area/source
-- model/reference
-- optional future modifiers
+That mental image then becomes usable in the IQ-training/spinning loop.
 
-Keep these values data-driven rather than hard-coded across interaction scripts.
+## Why this system exists
+
+Visualization should do four jobs:
+
+1. make IQ feel like capability rather than only a number;
+2. turn world objects into active gameplay rather than passive collectibles;
+3. create a reason to search for harder/more valuable targets;
+4. provide the bridge between exploration, money, and Study Station training.
+
+## Object data
+
+Visualizable objects should be data-driven.
+
+Likely fields:
+
+```text
+id
+displayName
+areaId
+model/reference
+recommendedIQ
+minimumIQ (optional)
+baseMoneyValue
+baseTrainingValue / difficulty
+category/tags
+```
+
+Possible later fields:
+- size/complexity modifier
+- mutation/variant data
+- discovery state
+- mastery state
+- vividness bonus rules
+
+Do not hard-code object values across individual interaction scripts.
 
 ## Interaction states
 
-Working conceptual states:
+Conceptual flow:
 
 ```text
-visible in world
-→ inspect requirement
-→ attempt visualization
-→ success / obtain mental image
-→ available for training/spinning and downstream progression
+object exists in area
+→ player approaches / focuses it
+→ requirement and action become readable
+→ player starts Visualization
+→ short active challenge
+→ success or failure
+→ on success: mental image is acquired / updated
+→ money/value result is granted or prepared
+→ mental image becomes available for Study Station training
 ```
 
-The exact visualization minigame is not final.
+## IQ relationship
 
-## Recommended vs required IQ
+A promising model is to distinguish **minimum IQ** from **recommended IQ**.
 
-The UI concept has used `Recommended IQ` for early objects. Design testing should decide whether IQ is:
-- a hard gate
-- a difficulty modifier
-- or both depending on object type
+Example concept:
+- far below minimum: cannot start
+- below recommended: challenge is noticeably harder
+- around recommended: intended difficulty
+- well above recommended: easier/faster
 
-Do not hard-code one interpretation across the whole game until this is decided.
+This would make IQ affect interaction quality rather than only acting as a locked door.
 
-## Spinning / mental manipulation
+However, if the first minigame cannot support meaningful difficulty scaling, use a simpler hard requirement for the prototype.
 
-Once an item is visualized, the player should be able to use the mental image as part of IQ training.
+## First apple experience
 
-The exact controls, timing, and relationship with the study station are open questions.
+The apple is the tutorial target.
 
-## Progression value
+Working presentation:
 
-Harder, larger, stranger, or otherwise advanced items should generally support stronger progression. The exact formula and whether mutations/rarities are included is not locked.
+```text
+APPLE
+Recommended IQ: 80
+[Visualize]
+```
+
+`80` is a placeholder until starting IQ/balance are tested.
+
+The first apple should:
+- be visible almost immediately from spawn/tutorial route
+- take only a short time to understand
+- strongly communicate success
+- become the first mental image used for training
+
+Do not make the first interaction difficult enough that new players fail repeatedly before understanding the game.
+
+## Visualization minigame requirements
+
+Whatever mechanic is chosen should:
+- work on touch and mouse
+- explain itself visually with minimal text
+- last seconds, not minutes, for normal targets
+- scale to harder objects
+- support strong feedback for progress and success
+- feel related to perception, memory, orientation, focus, or mental manipulation
+
+Potential prototype families:
+- click/tap rapidly enough — easiest to build, weakest thematic fit
+- keep focus/timing inside a moving target
+- rotate/align a mental silhouette
+- briefly inspect then answer/replicate a visual detail
+- match object orientation or component layout
+
+Do not build several complex minigames before one basic interaction has been playtested.
+
+## Success / failure
+
+Success should feel decisive:
+- clear sound/visual burst
+- object/mental-image transition
+- money/value feedback where appropriate
+- explicit availability for training
+
+Failure should not feel punitive early.
+
+Possible failure response:
+- show progress achieved
+- allow quick retry
+- suggest higher IQ if substantially under recommendation
+
+Avoid losing large amounts of currency/items for ordinary failure.
+
+## Mental ownership model
+
+**OPEN:** what exactly the player owns after success.
+
+Possible models:
+
+### Permanent discovery
+
+Once visualized, the item is permanently in a mental library and can be selected later.
+
+Pros:
+- satisfying collection
+- simple persistence
+- encourages completion
+
+Risk:
+- area↔plot loop becomes weaker because reacquisition is unnecessary
+
+### Reacquired mental instance
+
+The player visualizes an item, then brings/uses that instance in training. Better items must be reacquired.
+
+Pros:
+- stronger repeated world loop
+- closer structural analogy to carrying progression objects home
+
+Risk:
+- can feel grindy if the visualization interaction is repetitive
+
+### Hybrid
+
+Discovery is permanent, but fresh/high-vividness visualizations provide the best training/value.
+
+This may eventually be the strongest design, but should not be implemented until the basic loop is proven.
+
+## Money/value relationship
+
+Current recommended design:
+- successful visualization produces money/value
+- visualization quality/vividness may later modify payout
+- more difficult objects have larger base value
+
+See `ECONOMY.md`.
+
+## Relationship to Study Station
+
+A visualized object should clearly become usable at the Study Station.
+
+The player should never wonder:
+
+> I visualized the apple; where did it go and why did I do that?
+
+After success, tutorial/feedback should point toward the training action until the player understands the relationship.
 
 ## Server authority
 
-When implemented:
-- server validates unlock/ownership state
-- server validates rewards/progression changes
-- client may handle presentation, input, camera, and responsive effects
-- never trust the client to declare successful acquisition or arbitrary IQ/money gains
+Server validates:
+- whether the object can currently be interacted with
+- IQ requirement state
+- success/reward result as appropriate
+- ownership/discovery changes
+- money grants
+
+Client handles:
+- responsive input
+- camera/presentation
+- animations/effects
+- local prediction/feedback where safe
+
+Never trust the client to declare arbitrary visualization success or reward amounts.
+
+## Anti-exploit / repetition considerations
+
+If the same object can generate repeated money:
+- add cooldown/state or another controlled loop
+- validate proximity/interaction
+- avoid client-driven reward calls
+
+The solution should also make sense as gameplay, not only as anti-cheat.
+
+## Acceptance criteria for first prototype
+
+- player can understand how to start visualization without instruction text walls
+- first apple can be completed on PC and mobile
+- success clearly produces a mental-image state
+- player knows the next action is to train/spin the image
+- requirements are data-driven
+- no client can simply fire a remote to award itself success/money
