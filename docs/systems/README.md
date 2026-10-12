@@ -1,6 +1,6 @@
 # Systems Overview
 
-This folder describes durable gameplay behavior. System docs should explain what the player experiences and the architectural boundaries Codex should respect.
+This folder describes durable gameplay behavior. System docs explain what the player experiences and the architectural boundaries Codex should respect.
 
 ## Current core system chain
 
@@ -29,6 +29,9 @@ The primary plot training station and treadmill-equivalent.
 
 ### `PLOT-PROGRESSION.md`
 How authored plot buildings/upgrades are purchased and displayed.
+
+### `RESEARCH-CENTER.md`
+The first major plot expansion and likely home for deeper technology, visualization, movement, or analysis upgrades.
 
 ### `ECONOMY.md`
 Roles of IQ and money and the current recommended reward separation.
@@ -67,6 +70,7 @@ Use configuration modules for:
 - item definitions
 - area definitions
 - Study Station tiers
+- Research Center upgrades
 - plot upgrade definitions
 - costs
 - IQ requirements
@@ -85,16 +89,18 @@ saved StudyStationTier = 3
 → plot renderer builds tier-3 station model
 ```
 
-Do not save every individual decorative Part if the same state can be reconstructed from configuration.
+Do not save every decorative Part if the same state can be reconstructed from configuration.
 
 ### Build the smallest working system first
 
-For early prototypes:
+For the earliest prototype:
 - one apple
 - one visualization interaction
 - one mental-item state
-- one Study Station tier/upgradable path
-- IQ + money
+- one Study Station training loop
+- IQ
+- money
+- one visible Study Station upgrade
 
 Do not build mutations, prestige, collections, research trees, and ten areas before that loop is fun.
 
@@ -103,9 +109,9 @@ Do not build mutations, prestige, collections, research trees, and ten areas bef
 Eventually save at minimum:
 - IQ
 - money
-- purchased/active plot progression
 - Study Station tier
-- Research Center state
+- Research Center build/tier state
+- purchased plot progression
 - durable item discovery/mastery if the final design uses it
 - area unlocks when they are not purely derived from IQ
 
@@ -122,6 +128,7 @@ RequestVisualization(objectId)
 SubmitVisualizationInput(...)
 RequestStudyUpgrade(tier)
 RequestBuildPlotUpgrade(id)
+RequestResearchUpgrade(id)
 ```
 
 rather than remotes that directly request rewards:
