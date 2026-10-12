@@ -1,75 +1,190 @@
 # Plot Progression
 
+## Status
+
+The authored-plot model and central Study Station are **LOCKED CURRENT DIRECTION**. Exact future structures and upgrade counts remain open.
+
 ## Purpose
 
 The player's plot is the persistent physical expression of progression.
 
-It should provide the same kind of immediate readability that successful tycoon/simulator bases provide: a player can look at a plot and understand roughly how advanced its owner is.
+A player should be able to look at their own plot—or another player's—and roughly understand advancement without opening a menu.
+
+The plot gives money a concrete purpose and creates a satisfying return point between world/object progression.
 
 ## Authored placement
 
 This is **not** a free-build system.
 
-Major plot objects have predetermined authored locations. The player buys/builds/upgrades content at those positions.
+Major plot objects have predetermined locations designed by the game.
 
-This gives the game:
-- controlled composition
-- clear progression
-- simpler interaction/readability
-- visible before/after changes
-- predictable space for later upgrades
+The player interacts with those locations to purchase/build/upgrade them.
 
-## Study Station
+Benefits:
+- controlled visual composition
+- obvious next goals
+- simple mobile interaction
+- predictable space for effects/UI
+- strong visible before/after progression
+- easier social readability
 
-Primary early progression station and treadmill-equivalent.
+Do not add drag-and-drop placement unless the game later develops a separate decoration/customization system.
 
-Working visual progression:
+## Current plot footprint
+
+Working size for the starting island: roughly **55–60 studs square** per plot.
+
+The plot entrance should face the central orchard/path.
+
+Key elements should be readable from the entrance and preferably from the shared central area.
+
+## Primary authored locations
+
+### 1. Study Station
+
+The most important early progression object.
+
+See `STUDY-STATION.md`.
+
+Working visual arc:
 
 ```text
-basic desk + book
-→ upgraded study/books
-→ chess/study setup
+simple desk + book
+→ improved study materials
+→ chess / logic setup
 → computer
-→ advanced computer
-→ high-IQ research/technology setup
+→ advanced workstation
+→ research / cognition technology
 ```
 
-The exact tier list, stat effects, and costs are not locked.
+The exact tiers/costs are not final.
 
-The station should be placed so its visual progression is easy to see from the plot entrance and, where possible, from the shared central area.
+### 2. Research Center
 
-## Research Center
+A major build location that begins as an obvious empty foundation/pad/locked structure.
 
-A predetermined future build location that becomes available after some early progression.
+Purpose:
+- provide an early-mid-term money aspiration
+- make the plot visibly expand beyond one desk
+- eventually house deeper systems that do not belong on the basic Study Station
 
-Current intended role:
-- visible next aspiration on the plot
-- home for deeper upgrades/research later
+Potential future responsibilities:
+- movement technology
+- visualization improvements
+- item analysis/modifiers
+- advanced research branches
 
-Exact systems housed inside it remain open. See `docs/OPEN-QUESTIONS.md`.
+Do not decide all of these at once. The Research Center should only gain systems when the base loop needs more depth.
 
-## Item / display space
+### 3. Item / mental display space
 
-Reserve space for future representation of items the player has visualized/obtained or for another progression system.
+Reserve an open region for representing visualized/mastered content or another future progression system.
 
-Do not commit this space to decorative clutter before the system design is decided.
+Possible uses:
+- display current mental object
+- showcase best/highest-complexity item
+- collection display
+- physical representation of memories/research
+
+This space should stay uncluttered until its gameplay role is chosen.
 
 ## Purchase interaction
 
-Current direction:
-- player approaches/clicks/interacts with the authored upgrade/build location
-- requirement/cost is shown clearly
-- server validates the purchase
-- successful purchase produces a visible physical construction/upgrade
+Current preferred pattern:
 
-Avoid forcing routine plot progression through a distant general shop.
+1. authored location clearly communicates what can be built/upgraded;
+2. cost and requirements are readable nearby;
+3. player clicks/taps/interacts;
+4. server validates money/IQ/prerequisites;
+5. construction/upgrade visibly occurs;
+6. new state is saved.
 
-## Social readability
+Example:
 
-Prefer upgrades with strong silhouettes and obvious visual changes over invisible percentage increases.
+```text
+Research Center
+$2,500
+Requires 150 IQ
+[Build]
+```
 
-When practical, another player should be able to infer progression from:
-- study-station tier
-- presence/level of Research Center
-- future plot structures
-- displayed advanced items/content
+Numbers are placeholders.
+
+Routine plot progression should happen directly on the plot rather than through a distant general shop.
+
+## Construction feedback
+
+Purchases should feel physical.
+
+Prefer:
+- quick build animation
+- parts/materializing effect
+- satisfying sound
+- clear before/after silhouette
+
+Avoid upgrades that only change a tiny label from `Lv. 3` to `Lv. 4` while the station looks identical.
+
+## Progress visibility
+
+A stronger plot should communicate advancement through:
+- larger/more advanced Study Station
+- Research Center presence/tier
+- advanced technology/effects
+- future item displays
+- more sophisticated materials/lighting where appropriate
+
+Do not rely on clutter. A few major silhouettes are better than dozens of tiny purchased props.
+
+## Ownership / multiplayer
+
+Each server plot should clearly belong to one player.
+
+Requirements:
+- player is assigned an available plot
+- plot state loads from saved progression
+- purchase prompts/actions reject other players where appropriate
+- visual state is replicated so everyone can see it
+- plot state cleans up/reassigns safely when the owner leaves
+
+Exact assignment implementation is an engineering decision, not a design constraint.
+
+## Upgrade dependencies
+
+Use simple prerequisite chains where useful:
+
+```text
+Study Station tier
+→ enough IQ / enough money
+→ Research Center
+→ later advanced structures
+```
+
+Avoid a confusing web of prerequisites in the early game.
+
+## Customization
+
+Cosmetic customization is not a current core system.
+
+If added later, keep gameplay upgrade locations authored and allow customization around them rather than making progression depend on free placement.
+
+## Server authority / persistence
+
+Server owns:
+- plot assignment
+- purchased structures
+- Study Station tier
+- Research Center state
+- costs/prerequisites
+
+Persist only durable progression state; reconstruct visual models from configuration when the player joins.
+
+## First-pass acceptance criteria
+
+- player can identify their plot quickly
+- plot entrance faces shared gameplay area
+- Study Station is clearly the main object
+- Research Center location creates a visible future goal
+- purchases can be understood without opening a shop menu
+- each meaningful purchase visibly changes the plot
+- another player can roughly compare plots by sight
+- layout leaves deliberate open space for future systems
