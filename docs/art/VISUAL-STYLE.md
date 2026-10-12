@@ -1,129 +1,274 @@
 # Visual Style
 
+## Status
+
+The broad art direction is **LOCKED CURRENT DIRECTION**: bright, chunky, readable, intentionally Roblox-like, with visible stud language and simple stylized geometry. Exact palettes, lighting values, and individual asset designs should come from approved Studio tests.
+
 ## Target
 
-A bright, chunky, intentionally Roblox-like world with readable forms and visible classic Roblox surface language.
+The game should look like a polished Roblox experience that embraces Roblox's physical/toy-like language rather than trying to imitate generic low-poly concept art.
 
-The desired result should look like a polished Roblox game environment, not generic AI low-poly fantasy art.
+Key qualities:
+- bright and welcoming
+- chunky readable silhouettes
+- simple geometry with deliberate proportions
+- visible classic Roblox studs where specified
+- built-in Roblox materials used intentionally
+- sparse, purposeful decoration
+- clean gameplay readability
+- strong separation between important interactables and background dressing
 
-The starting island should feel charming and toy-like: clear grass platforms, chunky cliff/rock structure, simple stylized trees, readable paths, sparse decoration, and strong gameplay landmarks.
+The first island should feel like a charming floating Roblox diorama, not a realistic fantasy landscape.
 
 ## Avoid
 
 - hyper-realistic terrain
-- generic smooth low-poly fantasy islands
+- smooth generic low-poly fantasy islands
+- AI-looking rock noise everywhere
 - hundreds of tiny decorative Parts
-- overly dense foliage
+- dense foliage that hides gameplay
 - giant empty lawns
-- massive ornamental structures that overpower gameplay
-- perfectly symmetrical layouts that feel like a diagram rather than a place
-- making every surface smooth when studs are part of the intended identity
-- making every surface studded indiscriminately
+- giant ornamental spawn/portal structures
+- perfect mirrored symmetry
+- excessive gradients/glow/effects used to fake polish
+- every object using a different visual language
+- surfaces being smooth simply because smooth is easier
+- studs applied indiscriminately to every face/object
 
-## Geometry
+## Geometry language
 
 Prefer:
-- simple Roblox Parts where they produce a stronger Roblox identity
-- chunky rock/cliff masses
-- clean silhouettes
-- readable proportions relative to the avatar
-- a small number of strong shapes rather than many noisy fragments
-- gentle path curves/offsets instead of a rigid grid when practical
-- asset variation derived from canonical assets
+- Roblox Parts for blockout and many final environment forms
+- chunky layered cliff shapes
+- simple cylinders/wedges where useful
+- clean silhouettes that read at normal camera distance
+- intentionally simplified trees/props
+- a few larger shapes instead of many tiny fragments
+- gentle asymmetry
+- canonical asset families with controlled variation
 
 Avoid:
-- micro-detail made from dozens of small Parts
-- realistic tree simulation
-- overly smooth procedural terrain as the default look
-- independently reinventing the art style for every prop
+- micro-detail made from dozens of tiny Parts
+- realistic branch networks
+- random rock scattering as a substitute for composition
+- over-sculpted Terrain as the main visual identity
+- independently generated prop styles that do not match each other
 
-## Materials and surfaces
+## Stud rules
 
-### Studs
-Studs are intentional and should be visually obvious in selected object categories.
+Studs are a major visual identifier. "Selective studs" means **clearly visible studs on specified categories**, not one token studded object in the whole map.
 
-Current rule:
-- grass-top platform Parts: studded top surface unless a specific approved design says otherwise
-- plot floors/build pads: studs are generally desirable when they reinforce the Roblox toy/build language
-- selected chunky cliff/stone blocks: use studded visible faces where it looks intentional and readable
-- selected wooden/structural Parts: studs can be used when consistent with the canonical asset
+### Default to studded top surfaces
 
-Do not interpret "selective" as "almost none." If a category is listed above, the first visual pass should clearly demonstrate the stud treatment.
+Use visible studs on:
+- major grass platform / island top Parts where compatible with the design
+- plot ground/build-pad surfaces
+- selected authored foundations/platforms
+- some chunky structural/stone elements when the studs strengthen the toy-like construction language
 
-### Smooth surfaces
-Use smooth surfaces for:
-- paths when studs hurt navigation/readability
-- small decorative details where studs create noise
-- elements whose approved canonical asset is smooth
+### Usually smooth
 
-### Built-in materials
-Use Roblox built-in materials when they improve readability without turning the environment realistic. Grass, Rock/Slate, Wood/WoodPlanks, and simple masonry are acceptable starting points.
+Use smooth surfaces on:
+- main walkable paths when studs visually fight navigation
+- small decorative details
+- UI/interaction surfaces
+- objects whose approved canonical asset is intentionally smooth
+- faces where studs create accidental noise or z-fighting
 
-### MeshParts
-Use MeshParts when they materially improve a hero/canonical asset. Do not default every environmental prop to a generated mesh.
+### Implementation rule
 
-### Terrain
-Terrain is optional and should not erase the chunky Roblox construction language. Prefer Parts for major starting-island forms unless an approved test demonstrates a better hybrid.
+When Codex creates a Part in a category that is supposed to be studded, explicitly set the relevant `SurfaceType` rather than assuming the material will communicate the look.
 
-## Color
+A visual QA pass should confirm studs are actually visible in the viewport.
 
-- bright and welcoming early-game palette
-- strong separation between grass, path, cliff, wood, and interaction surfaces
-- gameplay objects should stand out from background decoration
-- avoid muddy realistic color grading
-- use lighting to support readability before adding decorative complexity
+## Materials
 
-Exact palette values should come from approved Studio tests rather than being invented in this document.
+Preferred starting palette of Roblox built-ins:
+- Grass for readable playable ground where appropriate
+- Rock / Slate for chunky island structure
+- Wood / WoodPlanks for simple authored props
+- Brick / Cobblestone / concrete-like materials only when they support a specific structure
+
+Material choice should support shape readability. Do not layer many realistic textures onto simple geometry just because they exist.
+
+## MeshParts
+
+Use MeshParts when they substantially improve a hero asset or when Parts cannot produce the intended silhouette efficiently.
+
+Good candidates:
+- approved hero trees
+- important machines/Study Station tiers
+- unusual late-game objects
+
+Do not convert the whole environment into unrelated generated meshes.
+
+## Terrain
+
+Terrain is optional.
+
+For the starting island, Parts/chunky geometry should establish the visual language first. Terrain can be added only if it improves a specific element without making the island look like generic realistic terrain.
+
+## Color and contrast
+
+Starting-area goals:
+- bright grass
+- clearly different path color/value
+- darker/more grounded cliff underside
+- warm readable wood/desk/tree trunks
+- red apples that stand out immediately
+- interaction cues stronger than decoration
+
+Avoid muddy color grading.
+
+Use environmental lighting for atmosphere, but maintain clear object silhouettes and readable world-space UI.
+
+Exact color values should be promoted from approved Studio tests into this document later.
+
+## Lighting
+
+Desired early-game feel:
+- daylight / pleasant outdoor clarity
+- soft enough shadows to feel polished
+- no heavy fog that hides objectives
+- no extreme bloom washing out UI/studs
+- enough contrast to make the floating-island edge readable
+
+Lighting should make the environment easier to read before it makes it cinematic.
 
 ## Environment density
 
-The environment should feel finished but not crowded.
+The environment should feel authored but breathable.
+
+Decoration can include:
+- small rock clusters
+- sparse bushes/flowers
+- occasional fences/posts
+- small lamps/signage where useful
+- limited edge vegetation
+
+Decoration should do at least one job:
+- guide the eye
+- clarify a boundary
+- frame a landmark
+- add local atmosphere
+- hide an ugly technical transition
+
+Do not decorate empty space merely because it is empty.
+
+## Scale
+
+Always judge props relative to a normal Roblox avatar and gameplay camera.
+
+For environment QA, specifically check:
+- path width
+- plot entrance width
+- desk/station height
+- tree canopy clearance
+- interaction distance
+- stairs/ramp comfort
+- gate size
+
+A concept image is not a scale specification. Playtest walking distances and camera views.
+
+## Visual hierarchy — starting island
+
+From spawn, the intended order is:
+
+1. **Apple orchard / first gameplay target**
+2. **Player plots / personal progression spaces**
+3. **Comprehension gate / next-area aspiration**
+
+The spawn structure itself should be minimal and should not become the strongest landmark.
+
+From a plot entrance, the intended order is:
+
+1. Study Station
+2. current/next plot build location
+3. central orchard/shared world
+
+## Orchard / tree language
+
+The first orchard should use roughly five trees, not a forest.
 
 Rules:
-- keep clear walking/interaction space around important objects
-- use small clusters of rocks, flowers, bushes, fences, or lights as accents
-- do not line every island edge with trees
-- allow visible cliff/floating-island silhouette
-- decoration should explain boundaries, guide the eye, or support atmosphere
+- preserve the existing Studio tree/apple work as the canonical starting reference when available
+- derive variants from one approved tree rather than inventing five separate styles
+- use modest rotation, scale, canopy, branch, and apple-placement variation
+- keep enough negative space for interaction and camera readability
+- trees can be stylized/blocky but should still read immediately as apple trees
 
-## Visual hierarchy
+If `ReferenceBirchStudTree` or an equivalent existing canonical tree exists, inspect it before making variants.
 
-At a normal gameplay camera on the starting island, the player should understand:
+## Apple language
 
-1. the orchard/current gameplay target
-2. nearby player plots and where their own progression home is
-3. the future comprehension gate/next-area aspiration
+The apple is the tutorial object and should be unusually readable.
 
-The spawn itself should not become a competing giant landmark.
-
-## Trees
-
-The orchard should initially use roughly five trees, not a dense forest.
-
-Known direction:
-- use the existing Studio tree/apple work as the canonical style anchor when available
-- create subtle variants from that anchor rather than independently generating unrelated tree styles
-- variation can come from rotation, modest scale changes, canopy proportions, branch orientation, and apple placement/count
-- trees need clear walkable/interactable spacing
-
-If `ReferenceBirchStudTree` exists in the Studio scene, inspect and preserve it as a canonical reference rather than recreating it from scratch.
+It should:
+- stand out strongly against leaves
+- be large/readable enough for Roblox camera distance
+- not look photorealistic
+- match the tree's simplified style
+- support an interaction highlight without getting visually lost
 
 ## Floating-island language
 
-The starting area should read clearly as a floating island:
-- grassy playable top
-- chunky layered rock/cliff underside
-- visible edge silhouette
-- sparse edge protection that does not feel like an obvious wall
-- invisible barriers may provide the actual safety while rocks/vegetation provide the visual explanation
+The starting area should clearly read as floating:
+- readable grassy top silhouette
+- thick chunky rocky underside
+- layered downward rock forms rather than a flat slab
+- visible cliff edges in selected viewpoints
+- sparse vegetation/rocks framing edges
+- optional small waterfall only if it improves the composition
 
-## Canonical assets
+Use invisible barriers for reliable fall prevention where needed. Visual rocks/vegetation explain the edge; they are not the only safety system.
 
-Canonical assets must be discovered from the live Studio project and approved references before replacement.
+## Paths
 
-Current expected canonical references:
-- the existing apple/tree work in Studio
-- future approved starting-plot composition
-- future approved cliff/path material test
+Paths should:
+- make Spawn → Orchard → Gate legible
+- branch naturally toward plots
+- use slight curves/offsets where practical
+- remain broad enough for multiplayer movement
+- avoid forming an overly perfect ring/grid unless the design intentionally calls for it
 
-When a result is explicitly approved, add a screenshot/note to `references/approved/` and update this section if it establishes a reusable rule.
+## Plot language
+
+Plots should feel like authored personal spaces, not six blank tycoon rectangles.
+
+Use:
+- clear boundary treatment
+- entrance facing the central area
+- simple path/threshold into the plot
+- enough open space for upgrade silhouettes
+- consistent base language across all plots
+
+Player progression objects should provide the visual complexity, not excessive permanent decoration.
+
+## Effects
+
+Effects should emphasize gameplay moments:
+- visualization success
+- IQ gain
+- money payout
+- station upgrade/construction
+- comprehension gate unlock
+
+Avoid constant particle spam that makes the world hard to read.
+
+## Canonical assets and approval process
+
+Canonical assets must be discovered from the live Studio project and `references/approved/` before replacement.
+
+Expected early canonical assets:
+- existing apple model
+- existing/stabilized apple tree
+- approved cliff/grass/path test
+- approved plot entrance/base
+- approved Study Station tier 1
+
+When the user explicitly approves a visual result:
+1. save a screenshot/reference in `references/approved/`;
+2. write a short note explaining what is approved;
+3. update this document if the approval establishes a reusable rule.
+
+When a result is rejected for an informative reason, record it in `references/rejected/` with specific failure reasons.
