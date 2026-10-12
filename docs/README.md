@@ -12,7 +12,7 @@ Use these labels when reviewing decisions:
 
 ## The game in one paragraph
 
-Roblox IQ is a progression game about training the player's mind. The player begins with simple objects such as an apple, attempts to **visualize/comprehend** them, then mentally manipulates or **spins** the obtained mental image to train IQ. Higher IQ lets the player comprehend stronger, stranger, larger, and eventually absurd or impossible things. Money is used to physically improve a personal plot, especially the main **study station** and later facilities such as a Research Center. New areas represent things the player has become intelligent enough to comprehend. The long-term fantasy is going from struggling with an apple to understanding reality-bending objects and concepts.
+Roblox IQ is a progression game about training the player's mind. The player begins with simple objects such as an apple, attempts to **visualize/comprehend** them, then mentally manipulates or **spins** the obtained mental image to train IQ. Higher IQ lets the player comprehend stronger, stranger, larger, and eventually absurd or impossible things. Money is used to physically improve a personal plot, especially the main **Study Station** and later facilities such as a **Research Center**. New areas represent things the player has become intelligent enough to comprehend. The long-term fantasy is going from struggling with an apple to understanding reality-bending objects and concepts.
 
 ## Core documents
 
@@ -21,6 +21,7 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 - `PROGRESSION.md` — how capability, areas, items, money, and the plot grow.
 - `OPEN-QUESTIONS.md` — decisions that still need playtesting/design work.
 - `LESSONS.md` — durable lessons learned during development.
+- `SETUP.md` — local Studio/Rojo/Codex development workflow.
 
 ## Art
 
@@ -37,6 +38,7 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 - `systems/VISUALIZATION.md` — obtaining/comprehending items.
 - `systems/STUDY-STATION.md` — the treadmill-equivalent training station.
 - `systems/PLOT-PROGRESSION.md` — authored plot construction/upgrades.
+- `systems/RESEARCH-CENTER.md` — the first major plot expansion and home for deeper technology.
 - `systems/ECONOMY.md` — IQ vs money and the current reward model.
 - `systems/AREA-PROGRESSION.md` — comprehension gates and future zones.
 - `systems/MOVEMENT.md` — traversal philosophy and future mobility progression.
@@ -45,6 +47,11 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 ## References
 
 - `reference-games/STEAL-AN-EGG.md` — a structural/readability reference, not a clone target.
+- `reference-games/README.md` — how to use reference games without copying them.
+
+## Tasking
+
+- `tasks/TEMPLATE.md` — structure for larger Codex tasks so scope, visual checks, and acceptance criteria stay explicit.
 
 ## Review priority
 
@@ -52,8 +59,13 @@ When reviewing this first pass, focus on these questions first:
 
 1. Is the **visualize → spin/train → grow IQ → unlock harder things** fantasy correct?
 2. Should **money come mainly from successfully visualizing items**, while IQ mainly comes from spinning/training them?
-3. Is the study station truly the central treadmill-equivalent, or should spinning happen elsewhere?
+3. Is the Study Station truly the central treadmill-equivalent, or should spinning happen elsewhere?
 4. Does the plot progression model feel right: authored purchase/build locations instead of a general shop?
 5. Is the starting island structure right: compact floating orchard, plots on the sides, next-area gate ahead?
+6. Does the Research Center feel like the right second major plot milestone?
 
-If those five are aligned, most implementation choices become much easier.
+If those are aligned, most implementation choices become much easier.
+
+## Important review note
+
+Do not spend time correcting placeholder balance numbers yet unless a number implies the wrong pacing. The more important review is whether the relationships between systems match the intended game.
