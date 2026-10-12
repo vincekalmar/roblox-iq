@@ -1,116 +1,197 @@
 # Core Loop
 
+## Status
+
+The sequence **find object → visualize/comprehend → train with the mental image → grow IQ → use money to improve the plot → unlock harder content** is **LOCKED** at the conceptual level.
+
+The exact visualization minigame, money payout method, and how active spinning should be are **CURRENT DIRECTION / OPEN**.
+
 ## Primary loop
 
 ```text
 enter / explore the current area
-→ find an object with an IQ/comprehension requirement
-→ visualize / obtain the object
-→ use the object in the IQ-training loop ("spin" / mentally manipulate it)
-→ gain IQ and progression value
-→ earn/use money to improve the personal plot and study tools
-→ higher IQ + stronger plot tools enable better objects and new areas
-→ repeat with increasingly difficult / valuable / absurd objects
+→ find an item worth comprehending
+→ inspect its IQ recommendation / requirement
+→ attempt to visualize it
+→ succeed and obtain the mental image
+→ use the image in the training / spinning loop
+→ gain IQ
+→ convert successful visualization / item value into money
+→ spend money on authored plot upgrades
+→ stronger study tools improve IQ progression
+→ higher IQ unlocks harder items, technology, and new areas
+→ repeat
 ```
 
-The exact money payout/sale interaction is still open. See `OPEN-QUESTIONS.md` rather than inventing a shop flow.
-
-## The object interaction
-
-The current fantasy has two stages:
-
-1. **Comprehend / visualize the item.** The object has a recommended or required IQ. The player performs an interaction/minigame to successfully visualize it.
-2. **Train with the mental image.** Once obtained/visualized, the player can mentally manipulate/spin it as part of IQ training.
-
-The exact input/minigame is not final. Early prototypes may use simple repeated input, but it should eventually feel like visualization rather than arbitrary clicking if a better mechanic is found.
-
-## Plot loop
-
-The player's plot is the persistent progression home.
-
-Early plot progression is authored, not free-build:
-- predetermined study-station location
-- predetermined research-center/build location
-- reserved item/display space
-- future upgrades may add other authored stations
-
-The study station is the primary treadmill-equivalent progression object.
-
-Working visual progression:
+The current best-fit separation is:
 
 ```text
-basic desk + book
-→ better study/books
-→ chess/study setup
-→ computer
-→ advanced computer / research setup
-→ later high-IQ technology
+visualize valuable things → money
+train your mind with them → IQ
 ```
 
-Exact tiers and costs are not yet locked.
+That separation is not final, but it gives IQ and money clearly different jobs.
 
-## First five minutes
+## Loop layer 1 — exploration / target selection
 
-Current target experience:
+The player enters an area and sees objects with different comprehension difficulty.
 
-1. Spawn on the floating starting island facing the apple orchard.
-2. Immediately see that the orchard contains interactable apples/objects.
-3. Encounter an apple with a low recommended IQ (working example: around 80; not final balance).
-4. Learn the visualize/comprehend interaction.
-5. Obtain the apple as the first mental object and use it to begin training IQ.
-6. Be directed back toward the player's nearby plot.
-7. Interact with the basic study desk and understand that it can be upgraded with money.
-8. See a future build location such as the Research Center so the plot has an obvious next aspiration.
-9. See the next-area comprehension landmark beyond the orchard, establishing the long-term goal.
+Important goals:
+- the next achievable object should be obvious
+- some harder objects should be visible early to create aspiration
+- requirements should be readable without opening a menu
+- an area should feel like a place containing things to understand, not a row of vending machines
 
-## Long-term progression
+In the first prototype, the apple can carry most of this teaching burden. Do not add many object types before the base interaction is actually fun.
 
-### Early session
-- visualize simple everyday objects
-- improve the first study station
-- build the first additional plot facility
-- learn that IQ gates stronger items/areas
+## Loop layer 2 — visualization / comprehension
 
-### Mid progression
-- items become larger, stranger, more valuable, or more difficult to comprehend
-- study/research technology becomes visibly more advanced
-- new areas change the environment and object pool
-- traversal friction should begin decreasing through thematic upgrades/shortcuts
+The player interacts with an object and tries to form a usable mental representation of it.
 
-### Late progression direction
-- technology and environments become increasingly extreme
-- targets can escalate toward huge/cosmic/impossible/conceptual objects
-- the player's ability to comprehend the world should feel dramatically different from the starting apple experience
+Working presentation:
+- object becomes the focus of the interaction
+- UI shows the object's name and recommended/required IQ
+- the player performs a short active interaction
+- progress/success is immediately legible
+- success communicates that the object is now mentally acquired and available for training
 
-Exact late-game systems are not yet designed.
+A repeated-click prototype is acceptable for validating the loop, but the final mechanic should ideally feel more like focus, recognition, rotation, matching, memory, or mental manipulation than arbitrary clicking.
 
-## Resources
+## Loop layer 3 — spinning / training
 
-### IQ
-Primary capability/progression stat.
+Once the mental image is acquired, the player trains with it.
 
-Used to gate stronger objects, areas, and potentially advanced equipment/traversal.
+The fantasy is that holding and mentally rotating/manipulating more difficult objects trains IQ more effectively.
 
-### Money
-Secondary progression currency.
+**Current best-fit interpretation:** the Study Station is the main place where this happens. The selected mental image is represented there and the player performs an active or semi-active training interaction.
 
-Used primarily to construct/upgrade authored plot content such as the study station and Research Center.
+Questions still open:
+- how active training should be
+- whether spinning can also happen away from the plot
+- whether the player trains one selected item at a time
+- whether item difficulty changes timing/precision or only reward magnitude
 
-How money is earned from visualized items is not yet locked.
+## Loop layer 4 — money / value
 
-### Visualized items
-Progression content rather than necessarily a conventional currency. Items should vary in difficulty/value and may eventually have size, rarity, mutation, or other modifiers if those systems prove fun.
+Money exists to fund visible progression rather than compete with IQ as another abstract power number.
+
+**Current best-fit model:**
+- successfully visualizing an object establishes/produces its economic value
+- higher-difficulty, larger, stranger, or more vivid objects can be worth more
+- the payout may happen immediately or through a simple plot-side conversion
+- training/spinning primarily increases IQ
+
+If a manual "sell" step survives testing, keep it quick and thematic. Do not build a distant general shop only to create extra walking.
+
+## Loop layer 5 — plot upgrade
+
+The player spends money on predetermined upgrade/build locations on their plot.
+
+The central early upgrade path is the Study Station. Later, the Research Center and other authored structures can add deeper choices.
+
+Every meaningful purchase should create a visible physical before/after change.
+
+## Loop layer 6 — capability / area unlock
+
+Higher IQ unlocks:
+- harder objects within the current area
+- later areas
+- more advanced study/research technology
+- eventually smarter traversal methods
+
+The player should regularly see something they cannot yet comprehend so IQ always has an obvious purpose.
+
+## First five minutes — target flow
+
+### Minute 0–1: immediate read
+
+1. Player spawns on the floating starting island facing the orchard.
+2. Tutorial/camera/UI points toward the first apple.
+3. The apple shows a working label such as `Recommended IQ: 80`.
+4. Player learns the visualization interaction.
+
+The exact starting IQ and the value `80` are not final balance.
+
+### Minute 1–2: first mental object
+
+1. Player successfully visualizes the apple.
+2. The game clearly communicates that the apple is now mentally acquired/usable.
+3. Player is introduced to spinning/training.
+4. The first IQ increase happens quickly.
+
+### Minute 2–4: plot meaning
+
+1. Player is directed toward their nearby plot.
+2. The Study Station is visibly the plot's primary object.
+3. Player learns how the apple is used with the Study Station.
+4. Player earns/has enough early money to understand the station upgrade loop.
+5. The first meaningful visual upgrade should arrive quickly.
+
+### Minute 4–5+: aspiration
+
+The player notices three future goals:
+- a harder object / higher IQ requirement
+- the Research Center build location or another obvious plot aspiration
+- the comprehension gate to the next area
+
+The first session should establish **better items, better plot, new area**.
+
+## Healthy repeated rhythm
+
+A working mid-session rhythm should roughly feel like:
+
+```text
+chase / visualize better content
+→ train / increase IQ
+→ short plot interaction / purchase
+→ visible improvement
+→ a new target becomes reachable
+```
+
+Exact timing is not locked, but avoid long stretches where nothing visibly changes.
+
+## Long-term loop
+
+As progression advances:
+- objects become harder and more visually interesting
+- item value grows
+- Study Station tiers become dramatically more advanced
+- the Research Center can introduce deeper upgrades if needed
+- new areas change environment and object pools
+- movement becomes less tedious through thematic progression
+- the scale of what the player can comprehend becomes the main spectacle
 
 ## Productive friction
 
 Good friction:
-- seeing an object you cannot comprehend yet and wanting enough IQ to reach it
-- choosing/earning the next plot upgrade
-- improving the effectiveness of study tools
-- short skill/timing/interaction challenges around visualization
+- seeing a desirable object slightly above current capability
+- needing more IQ for the next major area
+- deciding whether to spend or save money for a larger plot upgrade
+- skill/timing/precision in visualization
+- choosing which mental image is best to train with
 
 Bad friction:
-- long walks through empty space
+- long empty walking
 - repetitive clicking with no meaningful change
-- returning to a distant shop for routine upgrades
-- arbitrary requirements unrelated to the IQ fantasy
+- forced trips to a distant shop for routine upgrades
+- waiting with nothing meaningful to do
+- hidden formulas the player cannot reason about
+- many currencies that all mean "progress"
+
+## Tutorial principle
+
+Teach by doing, not by text walls.
+
+Ideal tutorial structure:
+
+```text
+point at apple
+→ visualize it
+→ show success
+→ teach spinning/training
+→ point at study desk
+→ purchase/upgrade
+→ show next aspiration
+```
+
+Only explain a system when the player is about to use it.
