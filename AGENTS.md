@@ -27,10 +27,40 @@ Do not reinterpret this into a generic pet simulator, free-build tycoon, or menu
 - `docs/art/VISUAL-STYLE.md` defines visual language.
 - `docs/world/` contains durable world/layout specs.
 - `docs/systems/` contains durable gameplay-system specs.
+- `docs/agent/` defines the agent workflow and iteration model.
 - `references/approved/` contains successful visual references.
 - `references/rejected/` contains approaches not to repeat.
 
 Read only the documentation relevant to the current task.
+
+## Skill routing
+
+For multi-discipline features, use `roblox-game-manager` to coordinate specialist workflows.
+
+Use specialist skills when applicable:
+- `roblox-code` — Luau architecture, config, networking, tests, verification
+- `roblox-environment` — environment/world construction
+- `roblox-map-qa` — reachability, stuck zones, movement-space validation
+- `roblox-ui` — UI design/implementation/responsive validation
+- `roblox-vfx` — reusable VFX primitives/recipes and phase review
+- `roblox-audio` — reusable audio library/recipes
+- `roblox-animation` — pose/timing workflow and visual review
+- `roblox-3d` — Studio/Blender/generated 3D asset pipeline
+- `roblox-visual-qa` — final visual inspection and correction
+
+Do not invoke every skill for every task. Use only the disciplines the feature actually requires.
+
+## Learning and automation
+
+When a workflow fails, fix the task first, then decide whether the lesson should become:
+- a skill rule for judgment/process
+- a deterministic helper under `automation/`
+- a test for gameplay/code behavior
+- an approved/rejected reference for taste
+
+Do not repeatedly solve the same deterministic failure with fresh prose reasoning.
+
+Do not add speculative automation that has not been tested on a real project case.
 
 ## Roblox Studio MCP
 
@@ -89,9 +119,15 @@ For meaningful code changes:
 - keep client/server responsibility clear
 - keep authoritative economy/progression logic server-side
 - prefer configuration modules over duplicated magic values
+- centralize network contracts as networking grows
 - avoid unrelated rewrites
 - run the repository verification script before completion when possible
+- run relevant automated tests once a test runner is active
 - playtest behavior that depends on Roblox runtime state
+
+## Secrets
+
+Never commit API keys or credentials. `.env` and `.secrets/` are local-only. Open Cloud and other external APIs must read secrets from local secure configuration/environment variables.
 
 ## Scope and uncertainty
 

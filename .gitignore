@@ -13,3 +13,10 @@ Thumbs.db
 # Local-only scratch
 .tmp/
 temp/
+artifacts/
+
+# Secrets / local credentials
+.env
+.env.*
+!.env.example
+.secrets/

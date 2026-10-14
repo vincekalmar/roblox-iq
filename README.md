@@ -77,7 +77,19 @@ new area              → major presentation beat
 late-game object      → increasingly absurd spectacle
 ```
 
-The long-term goal is for the presentation itself to communicate the fantasy: the player's mind is becoming powerful enough to understand things that previously felt impossible.
+## Agent workflow scaffold
+
+The project now uses a multi-discipline Codex workflow inspired by production pipelines where each discipline gets its own skill, validation, and reusable automation.
+
+Start here after pulling the repo:
+
+- `docs/agent/START-HERE.md` — what you need to provide now vs what we iterate later
+- `docs/agent/WORKFLOW.md` — how the manager and specialist skills fit together
+- `.agents/skills/` — manager + code/environment/map/UI/VFX/audio/animation/3D/visual-QA workflows
+- `automation/` — deterministic helpers that will be built as real recurring problems appear
+- `tests/` — scaffold for pure gameplay/business-logic tests
+
+The rule is: **skills encode process, automation encodes repeatable operations, tests encode behavior, references encode taste.**
 
 ## Development stack
 
@@ -92,49 +104,16 @@ The long-term goal is for the presentation itself to communicate the fantasy: th
 - Selene — linting/static analysis
 - Git/GitHub — history, safety, collaboration, and reusable project infrastructure
 
-### Creative production tooling — planned / optional
+### Creative/platform tooling — optional until activated
 
-These are expected to become useful as production expands, but they are not required for the basic project setup.
+- Figma/Figma MCP — optional UI design/reference workflow
+- Meshy or another approved 3D-generation provider — generated 3D starting points where useful
+- Blender/Blender MCP — cleanup, optimization, rigging, complex animation, export
+- Roblox Animation Editor — normal Roblox animation workflow
+- Roblox Studio VFX systems — runtime effects
+- Roblox Open Cloud — future external asset publishing/platform automation; credentials stay local
 
-- **Figma + Figma MCP** — UI/UX design, approved interface references, component/layout exploration, and a stronger design-to-Roblox workflow
-- **Meshy + Meshy MCP** — generated 3D concepts or complex assets where Roblox-native construction is not the better choice
-- **Blender + Blender MCP** — 3D cleanup, modification, optimization, rigging, complex animation, and export preparation
-- **Roblox Animation Editor** — normal character/object keyframe animation inside the Roblox pipeline
-- **Moon Animator or similar tooling** — optional cinematic or multi-object animation workflow when Studio's standard workflow becomes limiting
-- **Roblox Studio VFX systems** — ParticleEmitters, Beams, Trails, Highlights, lights, attachments, tweens, and scripted effects for runtime feedback
-
-External tools should support the game's visual language rather than replace it. Simple environment assets may look better when intentionally Roblox-native, while external 3D tools are more useful for advanced technology, unusual late-game objects, complex rigs, hero assets, and effects geometry.
-
-## Creative pipeline direction
-
-The intended production flow is roughly:
-
-```text
-GAME DESIGN / REFERENCES
-        ↓
-      CODEX
-        │
-        ├── Roblox Studio MCP → world, gameplay, VFX, runtime presentation
-        ├── Figma MCP         → UI design/reference workflow
-        ├── Meshy MCP         → generated 3D starting points where useful
-        └── Blender MCP       → 3D refinement / rigs / advanced animation
-        ↓
-   ROBLOX STUDIO
-        ↓
- screenshot + playtest + visual QA
-        ↓
-      iterate
-```
-
-Approved examples should gradually become reusable visual rules rather than asking Codex to invent the look from scratch on every task.
-
-As VFX and animation direction becomes established, add dedicated documents such as:
-
-- `docs/art/VFX-STYLE.md`
-- `docs/art/ANIMATION-STYLE.md`
-- potentially an audio/feedback specification if sound becomes substantial enough
-
-Those documents should be based on approved in-game examples rather than theoretical style rules alone.
+External tools support the visual language rather than replace it. Simple environment assets may look better Roblox-native; external 3D tools are more useful for advanced technology, unusual late-game objects, complex rigs, hero assets, and effects geometry.
 
 ## First-time setup
 
@@ -146,19 +125,22 @@ rojo serve
 
 Then open the matching Roblox place in Studio, connect the Rojo plugin, and enable/connect Studio MCP when Codex needs live Studio access.
 
-Creative tools such as Figma, Meshy, Blender, or additional animation software can be added when the project reaches work that benefits from them; they should not block basic game development.
+After pulling this scaffold, read `docs/agent/START-HERE.md` before adding external APIs or filling the automation folders.
 
 ## Project map
 
 - `docs/README.md` — design-bible index and review priorities
+- `docs/agent/` — agent workflow, onboarding, and iteration rules
 - `docs/GAME-VISION.md` — game identity and design pillars
 - `docs/CORE-LOOP.md` — player loop and early-session experience
 - `docs/PROGRESSION.md` — progression axes and current milestone model
 - `docs/OPEN-QUESTIONS.md` — decisions that are intentionally not locked yet
-- `docs/art/` — environment, UI, and eventually VFX/animation direction
+- `docs/art/` — environment, UI, VFX, animation, and audio direction
 - `docs/world/` — area/layout specifications
 - `docs/systems/` — gameplay-system specifications
 - `docs/reference-games/` — what to learn from other games and what not to copy
+- `automation/` — reusable deterministic helpers as they mature
+- `tests/` — gameplay/business-logic tests as they are introduced
 - `references/approved/` — successful visual outputs that future work should learn from
 - `references/inspiration/` — external inspiration and references
 - `references/rejected/` — useful failed experiments and what was wrong with them
