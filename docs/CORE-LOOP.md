@@ -188,7 +188,7 @@ Ideal tutorial structure:
 point at apple
 → visualize it
 → show success
-→ teach spinning/training
+→ teach spinning/training (this is passive)
 → point at study desk
 → purchase/upgrade
 → show next aspiration

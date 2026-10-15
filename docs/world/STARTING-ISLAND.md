@@ -9,6 +9,7 @@ spawn
 → central apple orchard
 → player plots framing the activity
 → comprehension gate / next-area aspiration
+→ <visible future areas>
 ```
 
 Exact coordinates, island silhouette, path curves, and decoration are blockout variables.

@@ -1,6 +1,13 @@
-# Roblox IQ Agent Workflow — Start Here
+# Roblox IQ Agent Workflow — Human Setup Guide
 
 This repository now contains the scaffold for a specialized Roblox development workflow. The scaffold is usable immediately, but the highest-value automation should be learned from real work rather than guessed in advance.
+
+> HUMAN-FOCUSED DOCUMENT
+>
+> This document is for the project owner when setting up or extending the
+> development harness. Agents should not treat this file as a task specification
+> or load it during normal implementation work unless explicitly asked to help
+> with harness setup.
 
 ## Fill in now
 

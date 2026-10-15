@@ -16,30 +16,23 @@ The player should feel that their growing IQ lets them access parts of reality t
 
 ## Area unlock fantasy
 
-Avoid generic copy such as:
+Portals / gates should clearly show the IQ requirement.
 
-```text
-World 2
-500 IQ
-```
+Default presentation:
 
-Prefer language and presentation around comprehension:
+???
+5B IQ REQUIRED
 
-```text
-You cannot comprehend this yet.
-```
+far below requirement
+→ destination shown as ???
 
-Then, near the threshold:
+approaching requirement
+→ silhouette / partial hints become clearer
 
-```text
-Something about this structure is beginning to make sense...
-```
+requirement reached
+→ destination name fully revealed
+→ portal activates
 
-And at unlock:
-
-```text
-You understand.
-```
 
 The underlying mechanic can still be a clear IQ threshold. The presentation should make the threshold belong to the game fantasy.
 
@@ -51,11 +44,23 @@ The starting floating island combines:
 - six nearby player plots
 - Study Station / plot loop
 - future Research Center locations
-- visible next-area comprehension gate
+- visible next-area portal / comprehension gate
+- visible future floating islands and distant progression landmarks
 
 The orchard is small on purpose. The first area should teach the entire loop without forcing long travel.
 
+Future areas should be visible from the starting island when practical. A new player should be able to look into the distance and see increasingly impressive floating islands, structures, VFX, or landmarks that they cannot yet access.
+
+The purpose is aspiration:
+
+advanced player plots nearby
+→ "How do I get that?"
+
+crazy floating islands in the distance
+→ "How do I get there?"
+
 See `docs/world/STARTING-ISLAND.md`.
+
 
 ## Within-area progression
 
@@ -67,10 +72,12 @@ Possible structure:
 easy item the player can use immediately
 → medium target visible nearby
 → difficult target that motivates more IQ
+→ Chance to spawn rare items
+→ Chance to mutate items that have spawned
 → area gate / next-area landmark
 ```
 
-For the first prototype, do not add a large catalog just to satisfy this structure. First make the apple interaction fun and readable.
+For the first prototype, do not add a large catalog just to satisfy this structure. First make the apple interaction fun and readable. 
 
 ## Future-area design principles
 

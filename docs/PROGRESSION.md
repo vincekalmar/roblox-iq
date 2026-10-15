@@ -35,7 +35,7 @@ Money is the main spendable resource.
 Money should primarily buy:
 - Study Station upgrades
 - Research Center construction/upgrades
-- future authored plot structures
+- future authored plot structures 
 - possibly transportation/support equipment where appropriate
 
 Money gives the player short- and medium-term purchase goals while IQ represents lasting capability.
