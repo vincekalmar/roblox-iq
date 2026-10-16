@@ -12,7 +12,7 @@ Use these labels when reviewing decisions:
 
 ## The game in one paragraph
 
-Roblox IQ is a progression game about training the player's mind. The player begins with simple objects such as an apple, attempts to **visualize/comprehend** them, then mentally manipulates or **spins** the obtained mental image to train IQ. Higher IQ lets the player comprehend stronger, stranger, larger, and eventually absurd or impossible things. Money is used to physically improve a personal plot, especially the main **Study Station** and later facilities such as a **Research Center**. New areas represent things the player has become intelligent enough to comprehend. The long-term fantasy is going from struggling with an apple to understanding reality-bending objects and concepts.
+Roblox IQ is a progression game about training the player's mind. The player begins with simple objects such as an apple, attempts to **visualize/comprehend** them, this allows them to obtain the item. A player will have some amount of slots where each slot allows you to equip one item/ concept. When a concept is equipped, it will produce some modifiers, equipping an item allows the item to orbit around you as if you are "conceptualzing" it. A player can also put the item on their plot to generate income per a second, this also generates money offline. Otherwise, a player can just leave it in their inventory. A player can gain IQ by studying at the study desk, the player will just sit at the study desk and have some repetitve animation showing that they are studying, it will show some IQ gained per a second. Higher IQ lets the player comprehend stronger, stranger, larger, and eventually absurd or impossible things. Money is used to physically improve a personal plot, especially the main **Study Station** and potential later facilities such as a **Research Center**. New areas represent things the player has become intelligent enough to comprehend. The long-term fantasy is going from struggling with an apple to understanding reality-bending objects and concepts.
 
 ## Core documents
 
@@ -52,20 +52,3 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 ## Tasking
 
 - `tasks/TEMPLATE.md` — structure for larger Codex tasks so scope, visual checks, and acceptance criteria stay explicit.
-
-## Review priority
-
-When reviewing this first pass, focus on these questions first:
-
-1. Is the **visualize → spin/train → grow IQ → unlock harder things** fantasy correct?
-2. Should **money come mainly from successfully visualizing items**, while IQ mainly comes from spinning/training them?
-3. Is the Study Station truly the central treadmill-equivalent, or should spinning happen elsewhere?
-4. Does the plot progression model feel right: authored purchase/build locations instead of a general shop?
-5. Is the starting island structure right: compact floating orchard, plots on the sides, next-area gate ahead?
-6. Does the Research Center feel like the right second major plot milestone?
-
-If those are aligned, most implementation choices become much easier.
-
-## Important review note
-
-Do not spend time correcting placeholder balance numbers yet unless a number implies the wrong pacing. The more important review is whether the relationships between systems match the intended game.
