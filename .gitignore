@@ -20,5 +20,4 @@ artifacts/
 .env.*
 !.env.example
 .secrets/
-*.png
 *.mov
