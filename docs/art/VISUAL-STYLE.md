@@ -12,7 +12,7 @@ Key qualities:
 - bright and welcoming
 - chunky readable silhouettes
 - simple geometry with deliberate proportions
-- visible classic Roblox studs where specified
+- visible classic Roblox studs as a pervasive construction language
 - built-in Roblox materials used intentionally
 - sparse, purposeful decoration
 - clean gameplay readability
@@ -33,7 +33,7 @@ The first island should feel like a charming floating Roblox diorama, not a real
 - excessive gradients/glow/effects used to fake polish
 - every object using a different visual language
 - surfaces being smooth simply because smooth is easier
-- studs applied indiscriminately to every face/object
+- treating studs as a rare accent instead of part of the core construction language
 
 ## Geometry language
 
@@ -56,30 +56,40 @@ Avoid:
 
 ## Stud rules
 
-Studs are a major visual identifier. "Selective studs" means **clearly visible studs on specified categories**, not one token studded object in the whole map.
+Studs are a **default visual language**, not a small accent layer.
 
-### Default to studded top surfaces
+For Roblox-built environment assets and map geometry, Codex should generally begin from the assumption that visible studs belong in the design unless there is a clear reason for a surface or object to be smooth.
 
-Use visible studs on:
-- major grass platform / island top Parts where compatible with the design
-- plot ground/build-pad surfaces
-- selected authored foundations/platforms
-- some chunky structural/stone elements when the studs strengthen the toy-like construction language
+Studs can appear across most of the physical world, including:
+- grass and ground surfaces
+- plot floors and build pads
+- platforms and foundations
+- cliffs, rocks, and chunky structural forms
+- trees and foliage built from Parts
+- fences, signs, props, and decorative objects
+- buildings and other authored world structures
+- some world-space lettering or constructed signage when it matches the asset design
 
-### Usually smooth
+The goal is for the environment to visibly and consistently feel Roblox-native. A finished scene should not contain only a few token studded surfaces surrounded by mostly smooth geometry.
 
-Use smooth surfaces on:
-- main walkable paths when studs visually fight navigation
-- small decorative details
-- UI/interaction surfaces
-- objects whose approved canonical asset is intentionally smooth
-- faces where studs create accidental noise or z-fighting
+### When smooth surfaces are appropriate
+
+Smooth surfaces are still valid when there is a specific reason, for example:
+- a path reads substantially better without studs
+- an approved canonical asset intentionally uses a smooth surface
+- UI or interaction-facing surfaces require a cleaner presentation
+- the geometry or face does not support studs cleanly
+- studs create visual artifacts, accidental noise, or technical problems
+
+Smooth should be a deliberate exception, not the default fallback.
 
 ### Implementation rule
 
-When Codex creates a Part in a category that is supposed to be studded, explicitly set the relevant `SurfaceType` rather than assuming the material will communicate the look.
+When Codex creates Parts intended to carry the studded language, explicitly set the relevant `SurfaceType` rather than assuming material alone will communicate the look.
 
-A visual QA pass should confirm studs are actually visible in the viewport.
+A visual QA pass should confirm that studs are clearly visible across the scene at normal gameplay distance and that the result still reads cleanly.
+
+Do not remove studs merely to make an asset easier to construct.
 
 ## Materials
 
@@ -170,34 +180,30 @@ For environment QA, specifically check:
 
 A concept image is not a scale specification. Playtest walking distances and camera views.
 
-## Visual hierarchy — starting island
+## Starting-island visual hierarchy
 
-From spawn, the intended order is:
+`docs/world/STARTING-ISLAND.md` is the source of truth for the starting island's spatial layout, player-view hierarchy, plot arrangement, central shared area, orchard relationship, and future gate placement.
 
-1. **Apple orchard / first gameplay target**
-2. **Player plots / personal progression spaces**
-3. **Comprehension gate / next-area aspiration**
+This document should not duplicate or override that layout.
 
-The spawn structure itself should be minimal and should not become the strongest landmark.
-
-From a plot entrance, the intended order is:
-
-1. Study Station
-2. current/next plot build location
-3. central orchard/shared world
+From a visual-style perspective, the starting island should:
+- make its major spaces readable from normal player camera height
+- use scale, paths, silhouettes, and environment treatment to distinguish those spaces
+- avoid letting decorative objects overpower progression-relevant spaces
+- preserve a clear sense of direction without requiring a minimap
 
 ## Orchard / tree language
 
-The first orchard should use roughly five trees, not a forest.
+The orchard should use a coherent family of trees rather than unrelated one-off styles.
 
 Rules:
-- preserve the existing Studio tree/apple work as the canonical starting reference when available
-- derive variants from one approved tree rather than inventing five separate styles
-- use modest rotation, scale, canopy, branch, and apple-placement variation
+- establish one approved canonical tree before treating the orchard tree design as final
+- derive variants from the approved tree rather than inventing several separate styles
+- use modest rotation, scale, canopy, branch, and later apple-placement variation
 - keep enough negative space for interaction and camera readability
-- trees can be stylized/blocky but should still read immediately as apple trees
+- trees can be stylized/blocky but should still read immediately as orchard trees
 
-If `ReferenceBirchStudTree` or an equivalent existing canonical tree exists, inspect it before making variants.
+Task-specific inspiration may be used while exploring the first tree design. Inspiration does not become a permanent visual rule until explicitly approved.
 
 ## Apple language
 
@@ -225,21 +231,21 @@ Use invisible barriers for reliable fall prevention where needed. Visual rocks/v
 ## Paths
 
 Paths should:
-- make Spawn → Orchard → Gate legible
-- branch naturally toward plots
+- reinforce the spatial flow defined by the relevant world document
+- branch naturally toward important spaces
 - use slight curves/offsets where practical
 - remain broad enough for multiplayer movement
 - avoid forming an overly perfect ring/grid unless the design intentionally calls for it
 
 ## Plot language
 
-Plots should feel like authored personal spaces, not six blank tycoon rectangles.
+Plots should feel like authored personal spaces, not blank tycoon rectangles.
 
 Use:
 - clear boundary treatment
-- entrance facing the central area
+- entrances oriented toward shared circulation
 - simple path/threshold into the plot
-- enough open space for upgrade silhouettes
+- enough open space for future upgrade silhouettes
 - consistent base language across all plots
 
 Player progression objects should provide the visual complexity, not excessive permanent decoration.
@@ -259,12 +265,14 @@ Avoid constant particle spam that makes the world hard to read.
 
 Canonical assets must be discovered from the live Studio project and `references/approved/` before replacement.
 
-Expected early canonical assets:
-- existing apple model
-- existing/stabilized apple tree
-- approved cliff/grass/path test
+Expected early canonical assets may eventually include:
+- approved apple model
+- approved apple tree
+- approved cliff/grass/path treatment
 - approved plot entrance/base
 - approved Study Station tier 1
+
+Do not assume these assets already exist in an empty or newly reset Studio place.
 
 When the user explicitly approves a visual result:
 1. save a screenshot/reference in `references/approved/`;
