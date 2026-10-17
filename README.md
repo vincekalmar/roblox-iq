@@ -79,17 +79,17 @@ late-game object      → increasingly absurd spectacle
 
 ## Agent workflow scaffold
 
-The project now uses a multi-discipline Codex workflow inspired by production pipelines where each discipline gets its own skill, validation, and reusable automation.
+The project uses a multi-discipline Codex workflow where each discipline gets its own skill, validation, and reusable automation as real needs emerge.
 
 Start here after pulling the repo:
 
-- `docs/agent/START-HERE.md` — what you need to provide now vs what we iterate later
+- `docs/agent/GOVERNANCE.md` — authority, mutability, lifecycle, promotion, and escalation rules
 - `docs/agent/WORKFLOW.md` — how the manager and specialist skills fit together
 - `.agents/skills/` — manager + code/environment/map/UI/VFX/audio/animation/3D/visual-QA workflows
-- `automation/` — deterministic helpers that will be built as real recurring problems appear
+- `automation/` — deterministic helpers that are built only after recurring real problems appear
 - `tests/` — scaffold for pure gameplay/business-logic tests
 
-The rule is: **skills encode process, automation encodes repeatable operations, tests encode behavior, references encode taste.**
+The rule is: **governance defines authority, skills encode process, automation encodes repeatable operations, tests encode behavior, references encode taste.**
 
 ## Development stack
 
@@ -125,11 +125,12 @@ rojo serve
 
 Then open the matching Roblox place in Studio, connect the Rojo plugin, and enable/connect Studio MCP when Codex needs live Studio access.
 
-After pulling this scaffold, read `docs/agent/START-HERE.md` before adding external APIs or filling the automation folders.
+After pulling this scaffold, read `docs/agent/GOVERNANCE.md` and `docs/agent/WORKFLOW.md` before extending the workflow or adding external tooling.
 
 ## Project map
 
 - `docs/README.md` — design-bible index and review priorities
+- `docs/agent/GOVERNANCE.md` — repository authority, lifecycle, mutability, and escalation model
 - `docs/agent/` — agent workflow, onboarding, and iteration rules
 - `docs/GAME-VISION.md` — game identity and design pillars
 - `docs/CORE-LOOP.md` — player loop and early-session experience
@@ -138,7 +139,6 @@ After pulling this scaffold, read `docs/agent/START-HERE.md` before adding exter
 - `docs/art/` — environment, UI, VFX, animation, and audio direction
 - `docs/world/` — area/layout specifications
 - `docs/systems/` — gameplay-system specifications
-- `docs/reference-games/` — what to learn from other games and what not to copy
 - `automation/` — reusable deterministic helpers as they mature
 - `tests/` — gameplay/business-logic tests as they are introduced
 - `references/approved/` — successful visual outputs that future work should learn from
