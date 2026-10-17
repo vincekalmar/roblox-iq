@@ -27,11 +27,14 @@ Do not reinterpret this into a generic pet simulator, free-build tycoon, or menu
 - `docs/art/VISUAL-STYLE.md` defines visual language.
 - `docs/world/` contains durable world/layout specs.
 - `docs/systems/` contains durable gameplay-system specs.
+- `docs/agent/GOVERNANCE.md` defines authority precedence, mutability boundaries, artifact lifecycle, and escalation rules.
 - `docs/agent/` defines the agent workflow and iteration model.
 - `references/approved/` contains successful visual references.
 - `references/rejected/` contains approaches not to repeat.
 
 Read only the documentation relevant to the current task.
+
+When sources conflict or when work may require promotion into approved/canonical/durable state, follow `docs/agent/GOVERNANCE.md`.
 
 ## Skill routing
 
