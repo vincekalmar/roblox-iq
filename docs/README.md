@@ -10,6 +10,8 @@ Use these labels when reviewing decisions:
 - **CURRENT DIRECTION** — best working design; build prototypes around it, but change it if testing gives a better answer.
 - **OPEN** — intentionally unresolved; do not let an implementation agent silently decide it.
 
+For authority precedence, mutability, promotion, reference lifecycle, and conflict handling, see `agent/GOVERNANCE.md`.
+
 ## The game in one paragraph
 
 Roblox IQ is a progression game about training the player's mind. The player begins with simple objects such as an apple, attempts to **visualize/comprehend** them, this allows them to obtain the item. A player will have some amount of slots where each slot allows you to equip one item/ concept. When a concept is equipped, it will produce some modifiers, equipping an item allows the item to orbit around you as if you are "conceptualzing" it. A player can also put the item on their plot to generate income per a second, this also generates money offline. Otherwise, a player can just leave it in their inventory. A player can gain IQ by studying at the study desk, the player will just sit at the study desk and have some repetitve animation showing that they are studying, it will show some IQ gained per a second. Higher IQ lets the player comprehend stronger, stranger, larger, and eventually absurd or impossible things. Money is used to physically improve a personal plot, especially the main **Study Station** and potential later facilities such as a **Research Center**. New areas represent things the player has become intelligent enough to comprehend. The long-term fantasy is going from struggling with an apple to understanding reality-bending objects and concepts.
@@ -22,6 +24,11 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 - `OPEN-QUESTIONS.md` — decisions that still need playtesting/design work.
 - `LESSONS.md` — durable lessons learned during development.
 - `SETUP.md` — local Studio/Rojo/Codex development workflow.
+
+## Agent workflow
+
+- `agent/GOVERNANCE.md` — authority hierarchy, mutability boundaries, lifecycle states, promotion, and escalation rules.
+- `agent/WORKFLOW.md` — manager/specialist workflow architecture and failure-to-tool learning loop.
 
 ## Art
 
@@ -46,9 +53,14 @@ Roblox IQ is a progression game about training the player's mind. The player beg
 
 ## References
 
-- `reference-games/STEAL-AN-EGG.md` — a structural/readability reference, not a clone target.
-- `reference-games/README.md` — how to use reference games without copying them.
+Visual/reference material lives under repository-level `references/` and follows the lifecycle defined in `agent/GOVERNANCE.md`:
+
+- `../references/inspiration/` — exploratory input; not source of truth
+- `../references/approved/` — human-approved evidence of qualities worth repeating
+- `../references/rejected/` — informative failed directions not to repeat without new evidence
 
 ## Tasking
 
 - `tasks/TEMPLATE.md` — structure for larger Codex tasks so scope, visual checks, and acceptance criteria stay explicit.
+
+Tasks implement the current durable docs; they do not silently override them.
